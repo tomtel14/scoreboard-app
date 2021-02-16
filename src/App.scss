@@ -1,33 +1,42 @@
+/* VARIABLES */
+
+$white: #fff;
+$page-bg: #eeecec;
+$header-footer-bg: #93A3B1;
+$input-bg: #7C898B;
+$submit-bg: #636564;
+$crown: #FFC657;
+$player-score-text: #636564;
+
 /* ELEMENT STYLES */
 
 body {
-  background: #eeecec; 
+  background: $page-bg; 
   font-family: arial;
   text-transform: uppercase;
 }
 
 header {
-  color: #FFF;
+  color: $white;
   padding: 5px 10px;
   text-align: center;
   display: flex;
   align-items: center;
-  background-color: #93A3B1;
+  background-color: $header-footer-bg;
   border-bottom: solid 2px #bfc4c1;
-}
-
-header h1 {
-  flex-grow: 1;
-  font-size: 1.5em;
-  letter-spacing: 2px;
-  font-weight: normal;
+  h1 {
+    flex-grow: 1;
+    font-size: 1.5em;
+    letter-spacing: 2px;
+    font-weight: normal;
+  }
 }
 
 /* FORMS */
 
 form {
   display: flex;
-  background-color: #93A3B1;
+  background-color: $header-footer-bg;
 }
 
 input[type=text] {
@@ -36,7 +45,7 @@ input[type=text] {
   margin: 15px 10px 15px 15px;
   padding: 10px;
   border-radius: 5px;
-  background: #7C898B;
+  background: $input-bg;
   border-style: none;
   text-shadow: none;
   text-transform: uppercase;
@@ -59,10 +68,10 @@ input[type=submit] {
   font-size: .6em;
   margin: 15px 15px 15px 0; 
   padding: 10px;
-  background-color: #636564;
+  background-color: $submit-bg;
   border-radius: 5px;
   border: none;
-  color: #fff;
+  color: $white;
   letter-spacing: 2px;
   font-weight: bold;
   text-shadow: none;
@@ -87,7 +96,7 @@ svg {
 }
 
 .is-high-score {
-  fill: #FFC657;
+  fill: $crown;
   animation: grow 0.35s ease-in-out;
   transform-origin: 50% 50%;
 }
@@ -99,7 +108,7 @@ svg {
 /* COMPONENT STYLES */
 
 .scoreboard {
-  background: #fff;
+  background: $white;
   width: 700px;
   margin: 70px auto;
   box-shadow: 0 2px 0 #636564;
@@ -112,38 +121,34 @@ svg {
   font-size: 1.2em;
   border-bottom: solid 2px #EEEEEE;
   letter-spacing: 2px;
-}
-
-  .player:last-of-type {
+  &:last-of-type {
     border-bottom-color: #bfc4c1;
   }
-
-  .player-name:hover .remove-player {
+  &-name:hover .remove-player {
     visibility: visible;
   }
-
-  .player-name,
+  &-name,
   .counter-score {
-    color: #636564;
+    color: $player-score-text;
   }
-
-  .player-name {
+  &-name {
     flex-grow: 1;
     line-height: 3.5em;
     padding-left: 10px;
   }
-
-  .remove-player {
-    font-size: 1.15em;
-    border: none;
-    outline: none;
-    visibility: hidden;
-    color: #EF5350;
-    cursor: pointer;
-    margin: 0 10px 0 0;
-    padding: 0;
-    background: none;
-  }
+}
+ 
+.remove-player {
+  font-size: 1.15em;
+  border: none;
+  outline: none;
+  visibility: hidden;
+  color: #EF5350;
+  cursor: pointer;
+  margin: 0 10px 0 0;
+  padding: 0;
+  background: none;
+}
 
 .stats,
 .stopwatch {
@@ -152,65 +157,57 @@ svg {
 
 .stats {
   font-weight: normal;
-}
-
-  .stats td:first-child {
+  td:first-child {
     text-align: right;
     font-weight: normal;
     letter-spacing: 2px;
     font-size: .7em;
   }
-
-  .stats td:last-child {
+  td:last-child {
     text-align: left;
   }
+}
 
 .stopwatch {
   padding: 15px 10px 5px 10px;
   margin: -5px -10px -5px 10px;
-  background: #7C898B;
-}
-
-  .stopwatch-time {
+  background: $input-bg;
+  &-time {
     display: block;
     font-family: monospace;
     font-size: 2.15em;
   }
-
-  .stopwatch button {
+  button {
     width: 70px;
     margin: 8px 5px;
-    background-color: #636564;
+    background-color: $submit-bg;
     border-radius: 5px;
     padding: 7px;
     border: none;
-    color: #fff;
+    color: $white;
     letter-spacing: 2px;
     font-weight: bold;
     text-shadow: none;
     text-transform: uppercase;
   }
-
-  .stopwatch button:hover,
+  button:hover,
   input[type=submit]:hover {
-    background: #fff;
-    color: #636564;
+    background: $white;
+    color: $submit-bg;
     cursor: pointer;
   }
-
-  .stopwatch h2 {
+  h2 {
     font-size: .6em;
     margin: 0;
     font-weight: normal;
     letter-spacing: 2px;
   }
+}
 
 .counter {
   display: flex;
   width: 190px;
-}
-
-  .counter-action {
+  &-action {
     border: none;
     font-size: 1.15em;
     font-weight: bold;
@@ -221,23 +218,24 @@ svg {
     cursor: pointer;
     outline: none;
   }
-
-  .counter-action:hover {
-    color: #fff;
+  &-action:hover {
+    color: $white;
   }
-
-  .increment:hover {
-    background: #83D97C;
-  }
-
-  .decrement:hover {
-    background: #EF5350;
-  }
-
-  .counter-score {
+  &-score {
     flex-grow: 1;
     text-align: center;
     font-family: monospace;
     font-size: 2em;
     line-height: 2em;
   }
+}
+
+.increment:hover {
+  background: #83D97C;
+}
+
+.decrement:hover {
+  background: #EF5350;
+}
+
+  

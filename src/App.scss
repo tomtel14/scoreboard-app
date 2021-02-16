@@ -79,6 +79,11 @@ input[type=submit] {
   cursor: pointer;
 }
 
+input[type=submit]:hover {
+  background: $white;
+  color: $submit-bg;
+}
+
 button, 
 input[type=submit] {
   outline: none;
@@ -237,5 +242,7 @@ svg {
 .decrement:hover {
   background: #EF5350;
 }
+
+
 
   
